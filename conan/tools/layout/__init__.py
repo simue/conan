@@ -8,7 +8,7 @@ def cmake_layout(conanfile, generator=None):
     gen = conanfile.conf["tools.cmake.cmaketoolchain:generator"] or generator
     if gen:
         multi = "Visual" in gen or "Xcode" in gen or "Multi-Config" in gen
-    elif conanfile.settings.compiler == "Visual Studio" or conanfile.settings.compiler == "msvc":
+    elif conanfile.settings.compiler.value == "Visual Studio" or conanfile.settings.compiler.value == "msvc":
         multi = True
     else:
         multi = False
